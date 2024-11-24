@@ -3,17 +3,29 @@ import {
 obtenerSuperheroePorIdController, 
 obtenerTodosLosSuperheroesController, buscarSuperheroesPorAtributoController, obtenerSuperheroesMayoresDe30Controller,
 crearSuperHeroeController,
-actualizarSuperHeroeController,
 borrarSuperHeroeController,
-borrarSuperHeroePorNombreController, 
+borrarSuperHeroePorNombreController,
+editarSuperheroeController,
+actualizarSuperheroeEditadoController,
 } from '../controllers/superheroesController.mjs'; 
+import { validarCrearSuperHeroe } from '../validation/validation.mjs';
+import { validarActualizarSuperHeroe } from '../validation/actualizarValidar.mjs';
 const router = express. Router(); 
-router.get('/heroes', obtenerTodosLosSuperheroesController); 
-router.get('/heroes/:id', obtenerSuperheroePorIdController); 
+router.get('/', obtenerTodosLosSuperheroesController);
+router.get('/buscarID/:id', obtenerSuperheroePorIdController);
+router.get('/agregar', (req, res) => { 
+    res.render('addSuperhero'); 
+});
 router.get('/heroes/buscar/nuevo/:atributo/:valor', buscarSuperheroesPorAtributoController); 
 router.get('/heroes/mayor/mayores-30', obtenerSuperheroesMayoresDe30Controller); 
-router.post('/heroes', crearSuperHeroeController); 
-router.put('/heroes/:id', actualizarSuperHeroeController);
-router.delete('/heroes/:id', borrarSuperHeroeController);
+router.post('/agregar',validarCrearSuperHeroe,(req, res) => {
+    crearSuperHeroeController(req, res);
+});
+router.get('/:id/editar', editarSuperheroeController);
+
+
+
+router.post('/:id/editar',validarActualizarSuperHeroe,actualizarSuperheroeEditadoController);
+router.delete('/:id', borrarSuperHeroeController);
 router.delete('/heroes/nombre/:nombreSuperHeroe', borrarSuperHeroePorNombreController);
 export default router; 
