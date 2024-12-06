@@ -1,0 +1,25 @@
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  nav ul li {
+    margin: 0;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  nav ul li a img {
+width: 20px; /* Ajusta el tamaño */
+height: 20px; /* Mantén la proporción */
+margin-right: 8px; /* Espaciado entre ícono y texto */
+}

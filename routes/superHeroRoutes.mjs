@@ -14,7 +14,7 @@ const router = express. Router();
 router.get('/', obtenerTodosLosSuperheroesController);
 router.get('/buscarID/:id', obtenerSuperheroePorIdController);
 router.get('/agregar', (req, res) => { 
-    res.render('addSuperhero'); 
+    res.render('addSuperhero',{title:'Agregar'}); 
 });
 router.get('/heroes/buscar/nuevo/:atributo/:valor', buscarSuperheroesPorAtributoController); 
 router.get('/heroes/mayor/mayores-30', obtenerSuperheroesMayoresDe30Controller); 
