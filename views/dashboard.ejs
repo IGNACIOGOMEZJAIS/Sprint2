@@ -1,42 +1,90 @@
-
 <div>
   <div>
-    <h2>Lista de Superhéroes</h2>
-    <a href="/superheroes/agregar">Agregar Nuevo Superhéroe</a>
+    <h2>Lista de Países de Habla Hispana</h2>
+    <a href="/paises/agregar">Agregar Nuevo País</a>
   </div>
 
-  <% if (superheroes && superheroes.length > 0) { %>
+  <% if (paises && paises.length> 0) { %>
     <table>
       <thead>
         <tr>
-          <th>Nombre del Superhéroe</th>
-          <th>Nombre Real</th>
+          <th>Nombre Oficial</th>
+          <th>Capital</th>
+          <th>Fronteras</th>
+          <th>Área (km²)</th>
+          <th>Población</th>
+          <th>Índice Gini</th>
+          <th>Zonas Horarias</th>
+          <th>Creador</th>
           <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <% superheroes.forEach(superheroe => { %>
+        <% paises.forEach(pais=> { %>
           <tr>
-            <td><%= superheroe.nombreSuperHeroe %></td>
-            <td><%= superheroe.nombreReal %></td>
+            <td>
+              <%= pais.nombreOficial %>
+            </td>
+            <td>
+              <%= pais.capital %>
+            </td>
+            <td>
+              <% if (pais.borders && pais.borders.length> 0) { %>
+                <ul>
+                  <% pais.borders.forEach(border=> { %>
+                    <li>
+                      <%= border %>
+                    </li>
+                    <% }); %>
+                </ul>
+                <% } else { %>
+                  No tiene fronteras
+                  <% } %>
+            </td>
+            <td>
+              <%= pais.area %> km²
+            </td>
+            <td>
+              <%= pais.poblacion %>
+            </td>
+            <td>
+              <% if (pais.gini) { %>
+                <%= pais.gini %>
+              <% } else { %>
+                No tiene gini
+              <% } %>
+            </td>
+            <td>
+              <% if (pais.timezones && pais.timezones.length> 0) { %>
+                <ul>
+                  <% pais.timezones.forEach(timezone=> { %>
+                    <li>
+                      <%= timezone %>
+                    </li>
+                    <% }); %>
+                </ul>
+                <% } else { %>
+                  No disponible
+                  <% } %>
+            </td>
+            <td>
+              <%= pais.creador || 'Desconocido' %>
+            </td>
             <td>
               <!-- Botón de Editar -->
-              <a href="/superheroes/<%= superheroe._id %>/editar">Editar</a>
+              <a href="/paises/editar/<%= pais._id %>">Editar</a>
 
               <!-- Botón de Eliminar -->
-              <form 
-                action="/superheroes/<%= superheroe._id %>?_method=DELETE" 
-                method="POST" 
-                onsubmit="return confirm('¿Estás seguro de eliminar a este superhéroe?');">
+              <form action="/paises/delete/<%= pais._id %>?_method=DELETE" method="POST"
+                onsubmit="return confirm('¿Estás seguro de eliminar este país?');">
                 <button type="submit">Eliminar</button>
               </form>
             </td>
           </tr>
-        <% }); %>
+          <% }); %>
       </tbody>
     </table>
-  <% } else { %>
-    <p>No hay superhéroes en la base de datos.</p>
-  <% } %>
+    <% } else { %>
+      <p>No hay países disponibles.</p>
+      <% } %>
 </div>
-

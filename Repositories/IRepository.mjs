@@ -7,26 +7,21 @@ class IRepository {
         throw new Error("Método 'obtenerTodos()' no implementado");
     }
 
-    buscarPorAtributo(atributo, valor) {
-        throw new Error("Método 'buscarPorAtributo()' no implementado");
+   
+
+    crearPais() {
+        throw new Error("Método 'crearPais()' no implementado");
     }
 
-    obtenerMayoresDe30() {
-        throw new Error("Método 'obtenerMayoresDe30()' no implementado");
-    }
-    crearSuperHeroe() {
-        throw new Error("Método 'crearSuperHeroe()' no implementado");
-    }
-    actualizarSuperHeroe() {
-        throw new Error("Método 'actualizarSuperHeroe()' no implementado");
-    }
-    borrarSuperHeroe() {
-        throw new Error("Método 'actualizarSuperHeroe()' no implementado");
-    }
-    borrarSuperHeroePorNombre() {
-        throw new Error("Método 'borrarSuperHeroePorNombre()' no implementado");
+    actualizarPais() {
+        throw new Error("Método 'actualizarPais()' no implementado");
     }
 
+    borrarPais(id) {
+        throw new Error("Método 'borrarPais()' no implementado");
+    }
+
+   
 }
 
 export default IRepository;

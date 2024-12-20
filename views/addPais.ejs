@@ -1,0 +1,127 @@
+<div>
+  <div>
+    <a href="/paises">Volver al Dashboard</a>
+  </div>
+
+  <h1>Agregar un Nuevo País</h1>
+
+  <form action="/paises/agregar" method="POST">
+    <div>
+      <label for="nombreOficial">Nombre Oficial:</label>
+      <input type="text" id="nombreOficial" name="name.official" required minlength="3" maxlength="90" />
+    </div>
+    <div>
+      <label for="nombreNativo">Nombre Nativo (para cada idioma):</label>
+      <input type="text" id="nombreNativo" name="name.nativeName" placeholder="Ejemplo: República Argentina" />
+    </div>
+    <div>
+      <label for="nombreComun">Nombre Común:</label>
+      <input type="text" id="nombreComun" name="name.common" required minlength="3" maxlength="90" />
+    </div>
+    <div>
+      <label for="capital">Capital (separada por comas si hay más de una):</label>
+      <input type="text" id="capital" name="capital" required placeholder="Ejemplo: Buenos Aires, La Plata"
+        pattern="^[^,]+(, [^,]+)*$"
+        title="Introduce las capitales separadas por comas y espacios, por ejemplo: Buenos Aires, La Plata" />
+    </div>
+
+    <div>
+      <label for="independencia">¿Es independiente?:</label>
+      <select id="independencia" name="independent" required>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="status">Estado:</label>
+      <input type="text" id="status" name="status" required placeholder="Ejemplo: officially-assigned" />
+    </div>
+
+    <div>
+      <label for="miembroONU">¿Es miembro de la ONU?:</label>
+      <select id="miembroONU" name="unMember" required>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="area">Área (km²):</label>
+      <input type="number" id="area" name="area" required min="0" step="0.01" />
+    </div>
+
+    <div>
+      <label for="poblacion">Población:</label>
+      <input type="number" id="poblacion" name="population" required min="0" />
+    </div>
+
+    <div>
+      <label for="gini">Índice Gini:</label>
+      <input type="number" id="gini" name="gini" min="0" max="100" step="0.01" />
+    </div>
+
+    <div>
+      <label for="fronteras">Fronteras (códigos ISO de 3 letras, separadas por comas):</label>
+      <input type="text" id="fronteras" name="borders" placeholder="Ejemplo: BRA, CHL, URY"
+        pattern="^[A-Z]{3}(, [A-Z]{3})*$"
+        title="Introduce códigos ISO de 3 letras separados por comas, por ejemplo: BRA, CHL, URY" />
+    </div>
+
+    <div>
+      <label for="region">Región:</label>
+      <input type="text" id="region" name="region" required placeholder="Ejemplo: Americas" />
+    </div>
+
+    <div>
+      <label for="subregion">Subregión:</label>
+      <input type="text" id="subregion" name="subregion" placeholder="Ejemplo: South America" />
+    </div>
+
+    <div>
+      <label for="latlng">Latitud y Longitud (separadas por comas):</label>
+      <input type="text" id="latlng" name="latlng" required placeholder="Ejemplo: -34, -64" title="Introduce coordenadas numéricas separadas por comas, por ejemplo: -34, -64" />
+    </div>
+
+    <div>
+      <label for="landlocked">¿Es un país sin litoral?:</label>
+      <select id="landlocked" name="landlocked">
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="moneda">Moneda:</label>
+      <input type="text" id="moneda" name="currencies" required placeholder="Ejemplo: ARS, Argentine peso, $" />
+    </div>
+    <div>
+      <label for="zonaHoraria">Zona Horaria:</label>
+      <input type="text" id="zonaHoraria" name="timezones" placeholder="Ejemplo: UTC-03:00, America/Argentina/Buenos_Aires" required />
+    </div>
+
+    <div>
+      <label for="languages">Idiomas (separados por comas):</label>
+      <input type="text" id="languages" name="languages" placeholder="Ejemplo: Spanish, Guaraní"
+        pattern="^[^,]+(, [^,]+)*$" title="Introduce los idiomas separados por comas, por ejemplo: Spanish, Guaraní" />
+    </div>
+
+    <div>
+      <label for="bandera">Bandera (URL de la imagen):</label>
+      <input type="url" id="bandera" name="flags.svg" placeholder="Ejemplo: https://flagcdn.com/ar.svg" required />
+    </div>
+    <div>
+      <label for="flag">flag:</label>
+      <input type="text" id="flag" name="flag" placeholder="Ejemplo:MI" required />
+    </div>
+
+    <div>
+      <label for="creador">Creador:</label>
+      <input type="text" id="creador" name="creador" required placeholder="Ejemplo: Martin" />
+    </div>
+
+    <div>
+      <button type="submit">Agregar País</button>
+    </div>
+  </form>
+</div>
